@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/styling/home.css">
+    <title>Dashboard</title>
+    <style>
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, .08);
+            padding: 10px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+            flex-shrink: 0;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .welcome {
+            font-size: .8rem;
+            color: #1b1b1b;
+        }
+
+        .username {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #080808;
+        }
+
+        #logout {
+            margin-left: auto;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 10px;
+            background: #d32f2f;
+            color: #fff;
+            font-size: .9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        #logout:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            padding: 18px 22px;
+            background: #222;
+            color: #fff;
+            border-left: 5px solid #4CAF50;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .35);
+            animation: slideIn .35s ease;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+
+            from {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+
+            .alert {
+                width: 90%;
+                min-width: unset;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="dashboard-theme-toggle" type="button" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    <main class="dashboard-page">
+        <header class="dashboard-header">
+            <a class="brand-link" href="/homePage/home/home.html">Donna's Recipes</a>
+            <h1>Dashboard</h1>
+            <a class="back-home" href="/homePage/home/home.html"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+        </header>
+        <section id="welcome-message" aria-live="polite"></section>
+    <section id="review-history" aria-live="polite">
+        <div class="history-heading">
+            <span class="eyebrow">Your activity</span>
+            <h2>Reviews you’ve given</h2>
+        </div>
+        <div id="user-reviews"></div>
+    </section>
+    </main>
+    <div id="alert-box" class="alert" style="display: none;"></div>
+    <script src="/scripts/utils.js"> </script>
+    <script src="/scripts/dashboard.js"></script>
+</body>
+
+</html>

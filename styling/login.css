@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Poppins", sans-serif; }
+body { min-width: 0; background: linear-gradient(135deg, #111, #1d1d1d, #111); color: #fff; line-height: 1.5; }
+.auth-container { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; padding: clamp(16px, 4vw, 32px); }
+.auth-container > h1, .auth-container > p, form { width: min(100%, 430px); }
+h1 { font-size: clamp(1.6rem, 5vw, 2rem); line-height: 1.25; text-align: center; }
+p { color: #c8c8c8; line-height: 1.6; text-align: center; } p a { color: #67d876; }
+form { padding: clamp(24px, 5vw, 40px); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; background: #1c1c1c; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+label { display: block; margin-bottom: 8px; color: #ececec; font-weight: 500; }
+input { width: 100%; margin-bottom: 20px; padding: 15px; border: 1px solid #3a3a3a; border-radius: 12px; background: #2a2a2a; color: #fff; font-size: 15px; }
+input:focus { outline: none; border-color: #4caf50; box-shadow: 0 0 0 4px rgba(76,175,80,.18); }
+input::placeholder { color: #a7a7a7; opacity: 1; }
+.password-container { position: relative; } .password-container input { padding-right: 48px; } #togglePassword { position: absolute; top: 42%; right: 15px; transform: translateY(-50%); color: #888; cursor: pointer; }
+button { width: 100%; padding: 15px; border: 0; border-radius: 12px; background: linear-gradient(135deg,#2e7d32,#4caf50); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; } button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(76,175,80,.35); }
+.alert { position: fixed; z-index: 1000; top: 20px; right: 20px; width: min(420px, calc(100% - 32px)); padding: 16px 18px; border-left: 5px solid #4caf50; border-radius: 12px; background: #222; box-shadow: 0 15px 35px rgba(0,0,0,.35); }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid rgba(100,216,109,.6); outline-offset: 3px; }
+@media (max-height: 720px) { .auth-container { justify-content: start; padding-block: 24px; } }

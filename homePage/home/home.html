@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Donna's Recipes</title>
+    
+</head>
+
+<body class="light-mode">
+    <div>
+        <header>
+            <button id="toggle-mode"><i class="fas fa-moon"></i></button>
+            <section id="header-section">
+                <h1>Donna's Recipes</h1>
+            </section>
+            <section id="navProfile">
+               
+            </section>
+        </header>
+        <div id="image">
+            <img src="/public/image.jpg" alt="Recipe Image">
+            <h2>Welcome to Donna's Recipes</h2>
+            <p>Discover and share your favorite recipes!</p>
+            <div class="search-panel">
+                <input type="search" placeholder="Search for recipes..." id="search-bar" aria-label="Search for recipes">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                <div id="search-suggestions" role="listbox" aria-label="Recipe suggestions"></div>
+            </div>
+        </div>
+        <article id="results" aria-live="polite">
+            <div class="results-heading">
+                <div>
+                    <span class="eyebrow">Curated for you</span>
+                    <h2>Explore recipes</h2>
+                </div>
+                <span id="results-count"></span>
+            </div>
+            <div id="results-grid"></div>
+        </article>
+    </div>
+    <div id="alert-box" class="alert" style="display:none;"></div>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/home.js"></script>
+</body>
+
+</html>
