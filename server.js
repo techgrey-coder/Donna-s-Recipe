@@ -24,7 +24,7 @@ function saveUsers() {
     fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
 }
 
-const SECRET_KEY = "super_secret_key_change_this_later";
+const SECRET_KEY = process.env.SECRET_KEY || 'dev-secret';
 const reviews = [];
 
 app.get("/test", (req, res) => {
@@ -111,19 +111,20 @@ app.get('/api/recipes', async (req, res) => {
 });
 
 app.post('/reviews', (req, res) => {
-    const { meaId, text } = req.body;
+    const { mealId, text } = req.body;
 
     if (!mealId || !text) {
-        return res.status(400).json({ message: 'Missing mealid or text..' });
+        return res.status(400).json({ message: 'Missing mealId or text.' });
     }
+
     const newReview = {
-        meaId,
+        mealId,
         text,
         date: new Date().toLocaleDateString()
     };
+
     reviews.push(newReview);
     res.status(200).json(newReview);
-
 });
 
 app.get('/reviews/:mealId', (req, res) => {
@@ -169,7 +170,7 @@ app.post('/authentication/login/login', async (req, res) => {
     const token = jwt.sign(
         { email: user.email, username: user.username },
         SECRET_KEY,
-        { expiresIn: '1hr' }
+        { expiresIn: '1h' }
     )
 
     res.status(200).json({
@@ -202,4 +203,5 @@ app.get('/homePage/dashboard/dashboard', verifyToken, (req, res) => {
     res.json({ message: `Welcome ${req.user.username}!`, user: req.user });
 })
 
-app.listen(3000, () => console.log('Server running on http://127.0.0.1:3000'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));

@@ -8,7 +8,7 @@ async function loadDashboard() {
         return;
     }
 
-    const response = await fetch('http://127.0.0.1:3000/homePage/dashboard/dashboard', {
+    const response = await fetch('/homePage/dashboard/dashboard', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
