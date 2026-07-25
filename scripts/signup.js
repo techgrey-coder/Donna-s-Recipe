@@ -1,4 +1,7 @@
 const alertBox = document.getElementById('alert-box');
+const apiBaseUrl = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '5500'
+    ? 'http://127.0.0.1:3000'
+    : '';
 
 document.getElementById("signup-form").addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -9,7 +12,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
 
     const password = document.getElementById("password").value;
 
-    const response = await fetch('/authentication/signup/signup', {
+    const response = await fetch(`${apiBaseUrl}/authentication/signup/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password })
